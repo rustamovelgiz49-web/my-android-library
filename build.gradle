@@ -1,0 +1,27 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.github.rustamovelgiz49_web'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 21
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.rustamovelgiz49-web'
+                artifactId = 'my-android-library'
+                version = '1.0.0'
+            }
+        }
+    }
+}
